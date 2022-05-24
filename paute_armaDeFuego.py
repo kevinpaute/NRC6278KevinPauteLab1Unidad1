@@ -215,3 +215,103 @@ def ubicacion_objetivoB():
     print("\nEstado de la meta: ")
     print(meta_estado)
     print("Medida de desempeño: " + str(costo))
+
+def ubicacion_objetivoC():
+    costo = 0 # Costo inicial
+    estado_objetivo1 = input("Ingrese el estado de " + ubicacion_objetivo +": ")  # Estado de Ubicacion C
+    estado_objetivo2 = input("Ingrese el estado de A:  ")  # Estado de ubicacion A
+    estado_objetivo3 = input("Ingrese el estado de B: ")  # Estado de ubicacion B
+    print('Meta deseada: ' + str(meta_estado) + ' deben ser eliminados')
+
+    print("\nEl objetivo se coloca en el campo C")
+    # Si el estado del objetivo es 1 el objetivo del campo C no está eliminado
+    if estado_objetivo1 == '1':
+        print("\nEn el campo C está el Objetivo no eliminado")
+        meta_estado['C'] = '0' # Convertir el estado del objetivo en 0
+        costo += 1
+        # Imprimir costo actual y eliminación del objetivo en el campo C
+        print("Eliminando Objetivo en el campo C")
+        print("Costo actual: " + str(costo))
+        
+        # Si el estado del objetivo es 1 el objetivo del campo A no está eliminado
+        if estado_objetivo2 == '1':
+            print("\nEn el campo A está el Objetivo no eliminado")
+            # Proyectil se dirige al campo A
+            print("Dirigiendose al campo A")
+            costo += 1
+            print("Costo actual: " + str(costo))
+            # Convertir el estado del objetivo del campo A en 0
+            meta_estado['A'] = '0'
+            costo += 1
+            # Imprimir costo actual y eliminación del objetivo en el campo A
+            print("Eliminando Objetivo en el campo A")
+            print("Costo actual: " + str(costo))
+        else:
+            print("\nEn el campo A está el Objetivo eliminado")
+            print("No se realizó ninguna acción")
+            print("Costo actual: " + str(costo))
+
+        # Si el estado del objetivo es 1 el objetivo del campo B no está eliminado
+        if estado_objetivo3 == '1':
+            print("\nEn el campo B está el Objetivo no eliminado")
+            # Proyectil se dirige al campo B
+            print("Dirigiendose al campo B")
+            costo += 1
+            print("Costo actual: " + str(costo))
+            # Convertir el estado del objetivo del campo B en 0
+            meta_estado['B'] = '0'
+            costo += 1
+            # Imprimir costo actual y eliminación del objetivo en el campo B
+            print("Eliminando Objetivo en el campo B")
+            print("Costo actual: " + str(costo))
+        else:
+            # Caso contrario, el Objetivo del campo B está eliminado
+            print("\nEn el campo B está el Objetivo eliminado")
+            print("No se realizó ninguna acción")
+            print("Costo actual: " + str(costo))
+    elif estado_objetivo1 == '0':
+        print("\nEn el campo C está el Objetivo eliminado")
+        if estado_objetivo2 == '1':
+            print("\nEn el campo A está el Objetivo no eliminado")
+            # Proyectil se dirige al campo A
+            print("Dirigiendose al campo A")
+            costo += 1 # Costo creciente
+            print("Costo actual: " + str(costo))
+            # Convertir el estado del objetivo del campo A en 0
+            meta_estado['A'] = '0' 
+            costo += 1 # Costo creciente
+            # Imprimir costo actual y eliminación del objetivo en el campo A
+            print("Eliminando Objetivo en el campo A")
+            print("Costo actual: " + str(costo))
+        else:
+            # Caso contrario, el Objetivo del campo A está eliminado
+            print("\nEn el campo A está el Objetivo eliminado")
+            print("No se realizó ninguna acción")
+            print("Costo actual: " + str(costo))
+
+        # Si el estado del objetivo es 1 el objetivo del campo B no está eliminado
+        if estado_objetivo3 == '1':
+            print("\nEn el campo B está el Objetivo no eliminado")
+            # Proyectil se dirige al campo B
+            print("Dirigiendose al campo B")
+            costo += 1 # Costo creciente
+            print("Costo actual: " + str(costo))
+            # Convertir el estado del objetivo del campo B en 0
+            meta_estado['B'] = '0'
+            costo += 1
+            # Imprimir costo actual y eliminación del objetivo en el campo B
+            print("Eliminando Objetivo en el campo B")
+            print("Costo actual: " + str(costo))
+        else:
+            # Caso contrario, el Objetivo del campo B está eliminado
+            print("\nEn el campo B está el Objetivo eliminado")
+            print("No se realizó ninguna acción")
+            print("Costo actual: " + str(costo))
+    else:
+        #Valida que el estado del objetivo sea 1 o 0
+        print("Estado no válido")
+
+    print("\nEstado de la meta: ")
+    print(meta_estado)
+    print("Medida de desempeño: " + str(costo))
+
