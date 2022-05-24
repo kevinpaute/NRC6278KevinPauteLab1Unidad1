@@ -1,10 +1,9 @@
 meta_estado = {'A':'0', 'B':'0', 'C':'0'}
-ubicacion_objetivo = input("Ingrese la ubicación del objetivo: ")
 
 def ubicacion_objetivoA():   
     costo = 0  # Inicialización de costo
     # Ingeso de estados de los objetivos
-    estado_objetivo1 = input("Ingrese el estado de " + ubicacion_objetivo + ": ")  
+    estado_objetivo1 = input("Ingrese el estado de A: ")  
     estado_objetivo2 = input("Ingrese el estado de B: ")  
     estado_objetivo3 = input("Ingrese el estado de C: ")
 
@@ -114,12 +113,10 @@ def ubicacion_objetivoA():
 
 def ubicacion_objetivoB():
     costo = 0 # Inicialización de costo
-    estado_objetivo1 = input("Ingrese el estado de " + ubicacion_objetivo +
-                             ": ")  # Estado de Ubicacion A
-    estado_objetivo2 = input(
-        "Ingrese el estado de A:  ")  # Estado de ubicacion B
-    estado_objetivo3 = input(
-        "Ingrese el estado de C: ")  # Estado de ubicacion C
+    # Ingresar estado del objetivo en cada campo
+    estado_objetivo1 = input("Ingrese el estado de B: ")  # Estado de Ubicacion B
+    estado_objetivo2 = input("Ingrese el estado de A: ")  # Estado de ubicacion A
+    estado_objetivo3 = input("Ingrese el estado de C: ")  # Estado de ubicacion C
     print('Meta deseada: ' + str(meta_estado) + ' deben ser eliminados')
 
     print("\nEl objetivo se coloca en el campo B")
@@ -218,8 +215,8 @@ def ubicacion_objetivoB():
 
 def ubicacion_objetivoC():
     costo = 0 # Costo inicial
-    estado_objetivo1 = input("Ingrese el estado de " + ubicacion_objetivo +": ")  # Estado de Ubicacion C
-    estado_objetivo2 = input("Ingrese el estado de A:  ")  # Estado de ubicacion A
+    estado_objetivo1 = input("Ingrese el estado de C: ")  # Estado de Ubicacion C
+    estado_objetivo2 = input("Ingrese el estado de A: ")  # Estado de ubicacion A
     estado_objetivo3 = input("Ingrese el estado de B: ")  # Estado de ubicacion B
     print('Meta deseada: ' + str(meta_estado) + ' deben ser eliminados')
 
@@ -315,3 +312,27 @@ def ubicacion_objetivoC():
     print(meta_estado)
     print("Medida de desempeño: " + str(costo))
 
+
+''' Función que lee la ubicación del objetivo en un campo de tiro 
+Si cumple con la cndición de que el objetivo está en el campo A, B o C 
+entonces se ejecuta la función ubicacion_objetivoA() o ubicacion_objetivoB() o ubicacion_objetivoC()'''
+def armaDeFuego(): 
+    # Ubicacion del objetivo 
+    print("A. Ubicación -> Campo de tiro A")
+    print("B. Ubicación -> Campo de tiro B")
+    print("C. Ubicación -> Campo de tiro C")
+    # Ingreso de la ubicacion del objetivo
+    ubicacion_objetivo = input("Ingrese la ubicacion del campo de tiro del objetivo: ")
+    # Leer la ubicación del campo de tiro del objetivo 
+    if ubicacion_objetivo == 'A':
+        ubicacion_objetivoA()
+    elif ubicacion_objetivo == 'B':
+        ubicacion_objetivoB()
+    elif ubicacion_objetivo == 'C':
+        ubicacion_objetivoC()
+    else:
+        # Valida que el objetivo esté en uno de los tres campos
+        print("Ubicación inválida")
+
+
+armaDeFuego() # Funcion que ejecuta el algoritmo de arma de fuego 
