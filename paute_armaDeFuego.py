@@ -1,8 +1,15 @@
-meta_estado = {'A':'0', 'B':'0', 'C':'0'}
+'''Programa agente: Proyectil de arma de fuego
+    Descripción: El agente debe eliminar un objetivo que se encuentre en algún campo de tiro, 
+    mediante un disparo. El disparo lanza un proyectil que detecta al objetivo.
+    Autor: Kevin Paute
+    Fecha: 24/05/2022'''
+
+#Inicialización de la ubicación y el estado del objetivo 
+meta_estado = {'A':'0', 'B':'0', 'C':'0'} # 0 = objetivo eliminado, 1 = objetivo no eliminado
 
 def ubicacion_objetivoA():   
     costo = 0  # Inicialización de costo
-    # Ingeso de estados de los objetivos
+    # Ingreso de estados de los objetivos
     estado_objetivo1 = input("Ingrese el estado de A: ")  
     estado_objetivo2 = input("Ingrese el estado de B: ")  
     estado_objetivo3 = input("Ingrese el estado de C: ")
@@ -215,6 +222,7 @@ def ubicacion_objetivoB():
 
 def ubicacion_objetivoC():
     costo = 0 # Costo inicial
+    # Ingresar estado del objetivo
     estado_objetivo1 = input("Ingrese el estado de C: ")  # Estado de Ubicacion C
     estado_objetivo2 = input("Ingrese el estado de A: ")  # Estado de ubicacion A
     estado_objetivo3 = input("Ingrese el estado de B: ")  # Estado de ubicacion B
